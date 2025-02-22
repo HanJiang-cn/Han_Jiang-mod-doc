@@ -1,7 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const pkg = require('vitepress/package.json')
+import timeline from "vitepress-markdown-timeline"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,7 +9,7 @@ export default defineConfig({
   description: "模组使用相关文档",
   cleanUrls: true, //开启纯净链接 //
   head: [
-    ['link',{ rel: 'icon', href: '../public/logo.png'}],
+    ['link',{ rel: 'icon', href: 'logo.png'}],
   ],
   // 多语言配置
   locales: {
@@ -28,7 +26,7 @@ export default defineConfig({
   },
   // 站点地图
   sitemap: {
-    hostname: 'http://localhost:5173/',
+    hostname: 'https://doc.2119.online/',
   },
   lastUpdated: true, //首次配置不会立即生效，需git提交后爬取时间戳 //
 
@@ -64,7 +62,7 @@ export default defineConfig({
     darkModeSwitchLabel: '深浅模式',
     //编辑本页
     editLink: { 
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // 改成自己的仓库
+      pattern: 'https://github.com/HanJiang-cn/Han_Jiang-mod-doc/edit/main/docs/:path', // 改成自己的仓库
       text: '在GitHub编辑本页'
     },
     // 自定义上下页名
@@ -84,13 +82,13 @@ export default defineConfig({
     // 导航栏
     nav: [
       { text: '首页', link: '/' },
-      { text: `${pkg.version}`, link: '/version'},
+      { text: `0.0.1`, link: '/version'},
       {
         text: '指南',
         items: [
-          { text: '前言', link: '/preface' },
-          { text: '快速上手', link: '/getting-started' },
-          { text: '查找', link: '/configuration' }
+          { text: '前言', link: 'guide/preface' },
+          { text: '快速上手', link: 'guide/getting-started' },
+          { text: '其它', link: 'guide/other' }
         ]
       },
       // noIcon 不显示图标
@@ -108,15 +106,26 @@ export default defineConfig({
     //侧边栏文字更改(移动端) //
     sidebarMenuLabel:'目录',
     // 侧边栏
-    sidebar: [
-      {
-        text: '版本',
-        items: [
-          { text: '版本', link: '/version' },
-          { text: '更新日志', link: '/changelog' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/guide/': [
+        {
+          text: '指南',
+          items: [
+            { text: '前言', link: '/guide/preface' },
+            { text: '快速上手', link: '/guide/getting-started' },
+            { text: '其它', link: '/guide/other' }
+          ],
+        },
+      ],
+        '/': [
+        {
+          text: '版本',
+          items: [
+            { text: '更新日志', link: '/version' },
+          ],
+        },
+      ],
+    },
     // 侧边栏配置
     outline: { 
       level: [2,4], // 显示2-4级标题
@@ -125,7 +134,7 @@ export default defineConfig({
     },
     // 页脚
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/HanJiang-cn/Han_Jiang-mod-doc' }
     ],
     // 页脚2
     footer: { 
@@ -138,6 +147,10 @@ export default defineConfig({
     image: {
       // 开启图片懒加载
       lazyLoading: true
+    },
+    // 配置markdown-it插件
+    config: (md) => {
+      md.use(timeline);
     },
   },
 })

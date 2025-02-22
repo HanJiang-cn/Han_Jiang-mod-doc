@@ -12,9 +12,6 @@ importers:
         specifier: ^3.5.13
         version: 3.5.13
     devDependencies:
-      '@types/node':
-        specifier: ^22.13.4
-        version: 22.13.4
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
         version: 5.2.1(vite@6.1.1(@types/node@22.13.4))(vue@3.5.13)
@@ -2075,6 +2072,7 @@ snapshots:
   '@types/node@22.13.4':
     dependencies:
       undici-types: 6.20.0
+    optional: true
 
   '@types/unist@3.0.3': {}
 
@@ -2668,7 +2666,8 @@ snapshots:
 
   trim-lines@3.0.1: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.20.0:
+    optional: true
 
   unicorn-magic@0.3.0: {}
 

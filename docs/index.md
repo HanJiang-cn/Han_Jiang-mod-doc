@@ -20,7 +20,7 @@ hero:
       link: /getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/HanJiang-cn/Han_Jiang-mod-doc
 
 features:
   - icon: 📖
