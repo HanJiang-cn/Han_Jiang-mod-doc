@@ -8,8 +8,3 @@
 模组目录
 ===
 
-- [AutoSave](AutoSave.md)
-- [AutoSavePlus](AutoSavePlus.md)
-- [AutoSavePlusPlus](AutoSavePlusPlus.md)
-- [AutoSavePlusPlusPlus](AutoSavePlusPlusPlus.md)
-- [AutoSavePlusPlusPlusPlus](AutoSavePlusPlusPlusPlus.md)
